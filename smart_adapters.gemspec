@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/andrearampin/smart_adapters'
   spec.license = 'MIT'
 
-  spec.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE',
+  spec.files = Dir['{app,config,db,lib}/**/*', 'LICENSE',
                    'Rakefile', 'README.md']
 
   spec.add_dependency 'rails', '~> 5.0'
