@@ -7,10 +7,6 @@ module SmartAdapters
         module Default
           extend ActiveSupport::Concern
           include ::SmartAdapters::Util::Adapters::Base
-
-          def unauthorized
-            render json: {}, status: :unauthorized
-          end
         end
       end
     end

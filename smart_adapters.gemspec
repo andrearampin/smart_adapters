@@ -24,4 +24,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'sqlite3'
+  spec.add_development_dependency 'byebug'
+  spec.add_development_dependency 'rspec-rails'
 end
