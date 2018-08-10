@@ -7,10 +7,6 @@ module SmartAdapters
         module Default
           extend ActiveSupport::Concern
           include ::SmartAdapters::Util::Adapters::Base
-
-          def unauthorized
-            redirect_to root_path, flash: { warning: 'Unauthorized' }
-          end
         end
       end
     end
