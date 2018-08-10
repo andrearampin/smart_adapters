@@ -61,6 +61,18 @@ module SmartAdapters
       request_format.xml?
     end
 
+    # Check if it is an API request
+    # @return [Boolean]
+    def api?
+      json?
+    end
+
+    # Check if it is a session request
+    # @return [Boolean]
+    def session?
+      html?
+    end
+
     # Check if the request has a valid format.
     # @return [Boolean]
     def valid_format?
