@@ -3,6 +3,8 @@
 # SmartAdapters
 Short description and motivation.
 
+[![Gem Version](https://badge.fury.io/rb/smart_adapters.svg)](https://badge.fury.io/rb/smart_adapters)
+
 ## Usage
 How to use my plugin.
 
