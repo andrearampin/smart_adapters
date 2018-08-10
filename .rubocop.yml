@@ -1,0 +1,9 @@
+AllCops:
+  Exclude:
+    - 'test/dummy/**/*'
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
