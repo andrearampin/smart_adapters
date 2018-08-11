@@ -2,7 +2,10 @@
 
 require_relative 'boot'
 
-require 'rails/all'
+require "action_controller/railtie"
+require "sprockets/railtie"
+require "rails/test_unit/railtie"
+
 
 Bundler.require(*Rails.groups)
 require 'smart_adapters'
