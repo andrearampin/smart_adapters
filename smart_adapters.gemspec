@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'Smart Adapters allow to keep the controllers DRY ' \
                        'while being able to respond to any request format.'
   spec.homepage      = 'https://github.com/andrearampin/smart_adapters'
-  spec.license = 'MIT'
+  spec.license = 'GPL-3.0'
 
   spec.files = Dir['{app,config,db,lib}/**/*', 'LICENSE',
                    'Rakefile', 'README.md']
