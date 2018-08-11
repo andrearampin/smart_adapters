@@ -1,6 +1,6 @@
 # SmartAdapters
 
-[![Gem Version](https://badge.fury.io/rb/smart_adapters.svg)](https://badge.fury.io/rb/smart_adapters) [![Build Status](https://travis-ci.org/andrearampin/smart_adapters.svg?branch=master)](https://travis-ci.org/andrearampin/smart_adapters)
+[![Gem Version](https://badge.fury.io/rb/smart_adapters.svg)](https://badge.fury.io/rb/smart_adapters) [![Build Status](https://travis-ci.org/andrearampin/smart_adapters.svg?branch=master)](https://travis-ci.org/andrearampin/smart_adapters) [![Maintainability](https://api.codeclimate.com/v1/badges/9d55d1d054401ab93a6e/maintainability)](https://codeclimate.com/github/andrearampin/smart_adapters/maintainability)
 
 Smart Adapters were born from the need to fully decouple the controller logic from the rendering of the response.
 In the [Ruby on Rails documentation](https://apidock.com/rails/ActionController/MimeResponds/InstanceMethods/respond_to), the controller has to decide the format of the answer based on the (Content-Type) request:
