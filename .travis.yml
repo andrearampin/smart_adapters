@@ -1,0 +1,7 @@
+---
+language: ruby
+script: "cd test/dummy && bundle exec rspec"
+rvm:
+  - 2.5.0
+branches:
+  only: master
