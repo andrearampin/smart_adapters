@@ -2,6 +2,9 @@
 
 module SmartAdapters
   class Delegator
+    # List of formats supported by SmartAdapters
+    FORMATS = %i[json html js xml text csv]
+
     # Initialise SmartAdapters delegator
     # @param [ActionController]
     # @param [ActionDispatch::Request]
@@ -37,28 +40,18 @@ module SmartAdapters
       request_manager
     end
 
-    # Is json request?
-    # @return [Boolean]
-    def json?
-      request_format.json?
+    FORMATS.each do |format_name|
+      # Verify if the request format is valid.
+      # @return [Boolean]
+      define_method "#{format_name}?" do
+        request_format.try(:"#{format_name}?")
+      end
     end
 
-    # Is html request?
+    # Check if the request has a valid format.
     # @return [Boolean]
-    def html?
-      request_format.html?
-    end
-
-    # Is js request?
-    # @return [Boolean]
-    def js?
-      request_format.js?
-    end
-
-    # Is xml request?
-    # @return [Boolean]
-    def xml?
-      request_format.xml?
+    def valid_format?
+      FORMATS.map { |format| send("#{format}?") }.any?
     end
 
     # Check if it is an API request
@@ -71,12 +64,6 @@ module SmartAdapters
     # @return [Boolean]
     def session?
       html?
-    end
-
-    # Check if the request has a valid format.
-    # @return [Boolean]
-    def valid_format?
-      json? || html? || js? || xml?
     end
 
     # Check if the request has a valid params.

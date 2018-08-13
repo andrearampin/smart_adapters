@@ -197,7 +197,7 @@ module SmartAdapters
           unless resource.present?
             return redirect_back fallback_location: root_path, flash: { error: 'Resource not found' }
           end
-          return redirect_back fallback_location: root_path, flash: { error: resource.errors }
+          redirect_back fallback_location: root_path, flash: { error: resource.errors }
         end
       end
     end
@@ -227,5 +227,5 @@ end
 ```
 
 ## TODO
-- Add remaining formats: `:text`, `:ics`, `:csv`, `:yaml`, `:rss`, `:atom`
+- Add remaining formats: ~~`:text`~~, `:ics`, ~~`:csv`~~, `:yaml`, `:rss`, `:atom`
 - Add generator

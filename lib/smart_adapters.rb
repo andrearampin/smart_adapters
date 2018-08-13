@@ -15,6 +15,8 @@ require 'smart_adapters/util/adapters/html/default'
 require 'smart_adapters/util/adapters/json/default'
 require 'smart_adapters/util/adapters/js/default'
 require 'smart_adapters/util/adapters/xml/default'
+require 'smart_adapters/util/adapters/csv/default'
+require 'smart_adapters/util/adapters/text/default'
 
 module SmartAdapters
 end

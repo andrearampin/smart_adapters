@@ -66,6 +66,40 @@ RSpec.describe ObjectsController, type: :request do
     end
   end
 
+  context "#csv" do
+    before { get '/objects.csv' }
+    scenario "#status 200" do
+      expect(response.status).to eql 200
+    end
+
+    scenario "#content-type csv" do
+      expect(response.header['Content-Type'])
+        .to eql 'text/csv; charset=utf-8'
+    end
+
+    scenario "#body valid" do
+      expect(response.body.include? "object\nobject content")
+        .to be true
+    end
+  end
+
+  context "#text" do
+    before { get '/objects.text' }
+    scenario "#status 200" do
+      expect(response.status).to eql 200
+    end
+
+    scenario "#content-type text" do
+      expect(response.header['Content-Type'])
+        .to eql 'text/plain; charset=utf-8'
+    end
+
+    scenario "#body valid" do
+      expect(response.body.include? "object\n\nobject content")
+        .to be true
+    end
+  end
+
   context "#xxx" do
     scenario "#exception" do
       expect { get '/objects.xxx' }
