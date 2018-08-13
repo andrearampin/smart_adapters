@@ -48,6 +48,14 @@ def success(people)
 end
 ```
 
+## Formats supported
+- html
+- json
+- js
+- xml
+- csv
+- text
+
 ## Installation
 Add this line to your application's Gemfile:
 
