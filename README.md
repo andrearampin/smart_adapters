@@ -2,8 +2,8 @@
 
 [![Gem Version](https://badge.fury.io/rb/smart_adapters.svg)](https://badge.fury.io/rb/smart_adapters) [![Build Status](https://travis-ci.org/andrearampin/smart_adapters.svg?branch=master)](https://travis-ci.org/andrearampin/smart_adapters) [![Maintainability](https://api.codeclimate.com/v1/badges/9d55d1d054401ab93a6e/maintainability)](https://codeclimate.com/github/andrearampin/smart_adapters/maintainability)
 
-Smart Adapters were born from the need to fully decouple the controller logic from the rendering of the response.
-In the [Ruby on Rails documentation](https://apidock.com/rails/ActionController/MimeResponds/InstanceMethods/respond_to), the controller has to decide the format of the answer based on the (Content-Type) request:
+Smart Adapters neatly decouple the controllers from the views independently by the request format.
+In the [Ruby on Rails documentation](https://apidock.com/rails/ActionController/MimeResponds/InstanceMethods/respond_to), the controller decides the format of the answer based on the (Content-Type) request:
 
 ```ruby
 # app/controllers/people_controller.rb
@@ -16,28 +16,29 @@ def index
 end
 ```
 
-Although, this method looks simple it's already highlighting how two distinct formats might have a slightly different implementation. The problem here is that over time this controller might inherit unnecessary complexity by simply introducting new properties or formats.
-
-The Smart Adapters solve this problem by delegating the task of properly render the response based on the request format to well-defined classes, one per format. The following implementation makes use of the Smart Adapters:
+The problem here is that over time the controllers inherit unnecessary complexity due to the evolution of the project (new logics and/or formats). The Smart Adapters solve the problem responding to a request with the appropriate format by using purposely designed classes.
 
 ```ruby
+# Controller
 # app/controllers/people_controller.rb
 def index
   current_adapter.success Person.all
 end
 
+# HTML Adapter
 # app/models/smart_adapters/people/index/html_adapter.rb
 def success(people)
   render 'people/show', locals: { people: people }
 end
 
+# XML Adapter
 # app/models/smart_adapters/people/index/xml_adapter.rb
 def success(people)
   render xml: people, status: :ok
 end
 ```
 
-Now that the application has a class per format, it is easy to keep the controller dry while implementing format specific features. For instance, in case of an XML request, the adapter could add more details to the `people` collection or track some metrics without bloating the controller.
+The application can now be kept dry while introducing new formats and functionalities. For instance, in case of an XML request, the adapter could add more details to the `people` collection or track some metrics without bloating the controller.
 
 ```ruby
 # app/models/smart_adapters/people/index/xml_adapter.rb
@@ -47,14 +48,6 @@ def success(people)
   render xml: people, status: :ok
 end
 ```
-
-## Formats supported
-- html
-- json
-- js
-- xml
-- csv
-- text
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -76,6 +69,14 @@ end
 ```
 
 Add the adapters for your **controller/action/format**.
+
+## Formats supported
+- HTML
+- JSON
+- JS
+- XML
+- CSV
+- TEXT
 
 ### Example
 
