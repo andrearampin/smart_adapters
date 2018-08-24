@@ -76,7 +76,7 @@ Add the adapters for your **controller/action/format**.
 - JS
 - XML
 - CSV
-- TEXT
+- TXT
 
 ### Example
 
