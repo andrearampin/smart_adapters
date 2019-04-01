@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    smart_adapters (0.1.5)
+    smart_adapters (0.1.6)
       rails (~> 5.0)
 
 GEM
